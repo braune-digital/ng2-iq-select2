@@ -56,6 +56,7 @@ export class Wrapper_IqSelect2Component {
   /*private*/ _expr_12:any;
   /*private*/ _expr_13:any;
   /*private*/ _expr_14:any;
+  /*private*/ _expr_15:any;
   subscription0:any;
   subscription1:any;
   constructor() {
@@ -76,6 +77,7 @@ export class Wrapper_IqSelect2Component {
     this._expr_12 = import1.UNINITIALIZED;
     this._expr_13 = import1.UNINITIALIZED;
     this._expr_14 = import1.UNINITIALIZED;
+    this._expr_15 = import1.UNINITIALIZED;
   }
   ngOnDetach(view:import2.AppView<any>,componentView:import2.AppView<any>,el:any):void {
   }
@@ -153,39 +155,46 @@ export class Wrapper_IqSelect2Component {
       this._expr_9 = currValue;
     }
   }
-  check_searchIcon(currValue:any,throwOnChange:boolean,forceUpdate:boolean):void {
+  check_resetable(currValue:any,throwOnChange:boolean,forceUpdate:boolean):void {
     if ((forceUpdate || import3.checkBinding(throwOnChange,this._expr_10,currValue))) {
       this._changed = true;
-      this.context.searchIcon = currValue;
+      this.context.resetable = currValue;
       this._expr_10 = currValue;
     }
   }
-  check_deleteIcon(currValue:any,throwOnChange:boolean,forceUpdate:boolean):void {
+  check_searchIcon(currValue:any,throwOnChange:boolean,forceUpdate:boolean):void {
     if ((forceUpdate || import3.checkBinding(throwOnChange,this._expr_11,currValue))) {
       this._changed = true;
-      this.context.deleteIcon = currValue;
+      this.context.searchIcon = currValue;
       this._expr_11 = currValue;
     }
   }
-  check_messages(currValue:any,throwOnChange:boolean,forceUpdate:boolean):void {
+  check_deleteIcon(currValue:any,throwOnChange:boolean,forceUpdate:boolean):void {
     if ((forceUpdate || import3.checkBinding(throwOnChange,this._expr_12,currValue))) {
       this._changed = true;
-      this.context.messages = currValue;
+      this.context.deleteIcon = currValue;
       this._expr_12 = currValue;
     }
   }
-  check_resultsCount(currValue:any,throwOnChange:boolean,forceUpdate:boolean):void {
+  check_messages(currValue:any,throwOnChange:boolean,forceUpdate:boolean):void {
     if ((forceUpdate || import3.checkBinding(throwOnChange,this._expr_13,currValue))) {
       this._changed = true;
-      this.context.resultsCount = currValue;
+      this.context.messages = currValue;
       this._expr_13 = currValue;
     }
   }
-  check_clientMode(currValue:any,throwOnChange:boolean,forceUpdate:boolean):void {
+  check_resultsCount(currValue:any,throwOnChange:boolean,forceUpdate:boolean):void {
     if ((forceUpdate || import3.checkBinding(throwOnChange,this._expr_14,currValue))) {
       this._changed = true;
-      this.context.clientMode = currValue;
+      this.context.resultsCount = currValue;
       this._expr_14 = currValue;
+    }
+  }
+  check_clientMode(currValue:any,throwOnChange:boolean,forceUpdate:boolean):void {
+    if ((forceUpdate || import3.checkBinding(throwOnChange,this._expr_15,currValue))) {
+      this._changed = true;
+      this.context.clientMode = currValue;
+      this._expr_15 = currValue;
     }
   }
   ngDoCheck(view:import2.AppView<any>,el:any,throwOnChange:boolean):boolean {
@@ -335,7 +344,7 @@ class View_IqSelect2Component1 extends import2.AppView<any> {
     return notFoundResult;
   }
   detectChangesInternal(throwOnChange:boolean):void {
-    const currVal_4_0_0:boolean = (!this.parentView.context.disabled && this.parentView.context.multiple);
+    const currVal_4_0_0:boolean = (!this.parentView.context.disabled && (this.parentView.context.multiple || this.parentView.context.resetable));
     this._NgIf_4_6.check_ngIf(currVal_4_0_0,throwOnChange,false);
     this._NgIf_4_6.ngDoCheck(this,this._anchor_4,throwOnChange);
     this._vc_4.detectChangesInNestedViews(throwOnChange);

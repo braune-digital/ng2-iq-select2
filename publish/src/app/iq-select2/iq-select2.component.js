@@ -25,6 +25,7 @@ var IqSelect2Component = (function () {
         this.placeholder = '';
         this.minimumInputLength = 2;
         this.disabled = false;
+        this.resetable = false;
         this.searchIcon = 'caret';
         this.deleteIcon = 'glyphicon glyphicon-remove';
         this.messages = {
@@ -333,7 +334,7 @@ var IqSelect2Component = (function () {
     IqSelect2Component.decorators = [
         { type: core_1.Component, args: [{
                     selector: 'iq-select2',
-                    template: '<div class="select2-container" [ngClass]="{\'readonly\': disabled}"><ul [class]="getCss()" [style.min-height]="getMinHeight()" (click)="focusInputAndShowResults()" [class.simple-selection]="!multiple" [class.multiple-selection]="multiple" [class.search-focused]="searchFocused"><li *ngFor="let item of selectedItems" class="select2-selected" [class.label]="multiple" [class.label-info]="multiple"><span class="selectedItemText">{{item.text}}</span> <a class="select2-selection-remove" (click)="removeItem(item)" *ngIf="!disabled && multiple"><i [class]="deleteIcon" [class.text-info]="!multiple"></i></a></li><li class="select2-input"><input #termInput type="text" [placeholder]="getPlaceholder()" [formControl]="term" [style.width]="getInputWidth()" [class.hideable]="isHideable()" (focus)="onFocus()" (blur)="onBlur()" (keyup)="onKeyUp($event)" (keydown)="onKeyDown($event)" (keypress)="onKeyPress($event)" *ngIf="!disabled"></li></ul><span [class]="searchIcon" *ngIf="minimumInputLength===0" (click)="focusInputAndShowResults()"></span> <span [class]="searchIcon" *ngIf="minimumInputLength!==0"></span><div class="results-container" *ngIf="resultsVisible"><span class="results-msg" *ngIf="listData && (listData.length + selectedItems.length) < resultsCount">{{getCountMessage()}} </span><span class="results-msg no-results-msg" *ngIf="searchFocused && listData && listData.length === 0">{{messages && messages.noResultsAvailableMsg ? messages.noResultsAvailableMsg : NO_RESULTS_MSG}}</span><iq-select2-results #results [selectedItems]="selectedItems" [items]="listData" (itemSelectedEvent)="onItemSelected($event);" [templateRef]="templateRef" [searchFocused]="searchFocused"></iq-select2-results></div></div>',
+                    template: '<div class="select2-container" [ngClass]="{\'readonly\': disabled}"><ul [class]="getCss()" [style.min-height]="getMinHeight()" (click)="focusInputAndShowResults()" [class.simple-selection]="!multiple" [class.multiple-selection]="multiple" [class.search-focused]="searchFocused"><li *ngFor="let item of selectedItems" class="select2-selected" [class.label]="multiple" [class.label-info]="multiple"><span class="selectedItemText">{{item.text}}</span> <a class="select2-selection-remove" (click)="removeItem(item)" *ngIf="!disabled && (multiple || resetable)"><i [class]="deleteIcon" [class.text-info]="!multiple"></i></a></li><li class="select2-input"><input #termInput type="text" [placeholder]="getPlaceholder()" [formControl]="term" [style.width]="getInputWidth()" [class.hideable]="isHideable()" (focus)="onFocus()" (blur)="onBlur()" (keyup)="onKeyUp($event)" (keydown)="onKeyDown($event)" (keypress)="onKeyPress($event)" *ngIf="!disabled"></li></ul><span [class]="searchIcon" *ngIf="minimumInputLength===0" (click)="focusInputAndShowResults()"></span> <span [class]="searchIcon" *ngIf="minimumInputLength!==0"></span><div class="results-container" *ngIf="resultsVisible"><span class="results-msg" *ngIf="listData && (listData.length + selectedItems.length) < resultsCount">{{getCountMessage()}} </span><span class="results-msg no-results-msg" *ngIf="searchFocused && listData && listData.length === 0">{{messages && messages.noResultsAvailableMsg ? messages.noResultsAvailableMsg : NO_RESULTS_MSG}}</span><iq-select2-results #results [selectedItems]="selectedItems" [items]="listData" (itemSelectedEvent)="onItemSelected($event);" [templateRef]="templateRef" [searchFocused]="searchFocused"></iq-select2-results></div></div>',
                     providers: [VALUE_ACCESSOR]
                 },] },
     ];
@@ -349,6 +350,7 @@ var IqSelect2Component = (function () {
         'placeholder': [{ type: core_1.Input },],
         'minimumInputLength': [{ type: core_1.Input },],
         'disabled': [{ type: core_1.Input },],
+        'resetable': [{ type: core_1.Input },],
         'searchIcon': [{ type: core_1.Input },],
         'deleteIcon': [{ type: core_1.Input },],
         'messages': [{ type: core_1.Input },],

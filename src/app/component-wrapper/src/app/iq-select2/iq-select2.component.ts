@@ -39,6 +39,7 @@ export class IqSelect2Component<T> implements AfterViewInit, ControlValueAccesso
     @Input() placeholder: string = '';
     @Input() minimumInputLength = 2;
     @Input() disabled = false;
+    @Input() resetable = false;
     @Input() searchIcon = 'caret';
     @Input() deleteIcon = 'glyphicon glyphicon-remove';
     @Input() messages: Messages = {
