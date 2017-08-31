@@ -21,7 +21,7 @@ const noop = () => {
 @Component({
     selector: 'iq-select2',
     templateUrl: './iq-select2.component.html',
-    styleUrls: ['./iq-select2.component.css'],
+    // styleUrls: ['./iq-select2.component.css'],
     providers: [VALUE_ACCESSOR]
 })
 export class IqSelect2Component<T> implements AfterViewInit, ControlValueAccessor {
