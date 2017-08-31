@@ -335,7 +335,7 @@ class View_IqSelect2Component1 extends import2.AppView<any> {
     return notFoundResult;
   }
   detectChangesInternal(throwOnChange:boolean):void {
-    const currVal_4_0_0:boolean = !this.parentView.context.disabled;
+    const currVal_4_0_0:boolean = (!this.parentView.context.disabled && this.parentView.context.multiple);
     this._NgIf_4_6.check_ngIf(currVal_4_0_0,throwOnChange,false);
     this._NgIf_4_6.ngDoCheck(this,this._anchor_4,throwOnChange);
     this._vc_4.detectChangesInNestedViews(throwOnChange);
